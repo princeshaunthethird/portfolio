@@ -823,49 +823,336 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .nav-menu {
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-modal);
-        border-top: 1px solid var(--border-subtle);
-        padding: 1rem;
-        display: none;
-      }
+    /* Add these CSS rules to your existing CSS (replace the existing @media section) */
 
-      .nav-menu.active {
-        display: flex;
-      }
+/* Enhanced Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+@media (max-width: 768px) {
+  /* Navigation improvements */
+  .nav-container {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-menu {
+    flex-direction: row;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .status-indicator {
+    font-size: 0.7rem;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  /* Container and spacing */
+  .container {
+    padding: 0 1rem;
+    margin-top: 100px; /* Account for wrapped nav */
+  }
+  
+  /* Hero section mobile optimization */
+  .hero {
+    padding: 2rem 0;
+  }
+  
+  .hero-terminal {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-name {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .hero-role {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-content {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  
+  /* Specs grid mobile */
+  .specs-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .spec-card {
+    padding: 1.25rem;
+  }
+  
+  .spec-value {
+    font-size: 1.5rem;
+  }
+  
+  /* Projects section mobile */
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .projects-title {
+    font-size: 1.5rem;
+  }
+  
+  .projects-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
+  .filter-btn {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .project-image {
+    height: 150px;
+  }
+  
+  .project-icon {
+    font-size: 2.5rem;
+  }
+  
+  .project-content {
+    padding: 1.25rem;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  .tech-chip {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .project-metrics {
+    font-size: 0.75rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  /* Contact section mobile */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-terminal {
+    padding: 1.5rem;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Modal mobile optimization */
+  .project-modal.active {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  
+  .modal-content {
+    margin: 0;
+    max-height: 95vh;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .modal-header {
+    padding: 1.5rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .project-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .detail-section {
+    padding: 1.25rem;
+  }
+  
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-image img {
+    width: 100% !important;
+    max-width: 280px;
+    height: auto;
+  }
+  
+  /* Tech specs table mobile */
+  .tech-specs {
+    font-size: 0.8rem;
+  }
+  
+  .tech-specs th,
+  .tech-specs td {
+    padding: 0.5rem;
+  }
+  
+  /* Footer mobile */
+  .footer {
+    padding: 2rem 0 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .footer-content {
+    padding: 0 1rem;
+  }
+  
+  .footer-terminal {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-links {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Code blocks mobile */
+  pre {
+    font-size: 0.7rem !important;
+    padding: 0.75rem !important;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
 
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .hero-name {
+    font-size: 1.5rem;
+  }
+  
+  .hero-role {
+    font-size: 0.9rem;
+  }
+  
+  .hero-content {
+    font-size: 0.75rem;
+  }
+  
+  .projects-title {
+    font-size: 1.25rem;
+  }
+  
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .project-image {
+    height: 120px;
+  }
+  
+  .project-icon {
+    font-size: 2rem;
+  }
+  
+  .modal-header,
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .form-input,
+  .form-textarea {
+    font-size: 0.85rem;
+  }
+}
 
-      .project-details-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .specs-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-name {
-        font-size: 2rem;
-      }
-
-      .modal-content {
-        margin: 1rem;
-        max-height: 95vh;
-      }
-    }
+/* Improved touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .nav-item,
+  .filter-btn,
+  .btn,
+  .social-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .project-card {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 255, 136, 0.1);
+  }
+}
 
     /* Scrollbar styling */
     ::-webkit-scrollbar {
@@ -1289,20 +1576,20 @@
 
 
         <div>
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xblabkba" method="POST">
             <div class="form-group">
               <label class="form-label" for="name">user@client:~$ echo $NAME</label>
-              <input type="text" id="name" class="form-input" placeholder="Your name" required>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
             </div>
             
             <div class="form-group">
               <label class="form-label" for="email">user@client:~$ echo $EMAIL</label>
-              <input type="email" id="email" class="form-input" placeholder="your.email@domain.com" required>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your.email@domain.com" required>
             </div>
             
             <div class="form-group">
               <label class="form-label" for="project">user@client:~$ echo $PROJECT_TYPE</label>
-              <select id="project" class="form-input" required>
+              <select id="project" name="project_type" class="form-input" required>
                 <option value="">Select project type...</option>
                 <option value="ai-ml">AI/ML Development</option>
                 <option value="iot-systems">IoT Systems</option>
@@ -1315,7 +1602,7 @@
             
             <div class="form-group">
               <label class="form-label" for="budget">user@client:~$ echo $BUDGET_RANGE</label>
-              <select id="budget" class="form-input">
+              <select id="budget" name="budget_range" class="form-input">
                 <option value="">Budget range (optional)...</option>
                 <option value="<10k">< $10,000</option>
                 <option value="10k-50k">$10,000 - $50,000</option>
@@ -1327,11 +1614,19 @@
             
             <div class="form-group">
               <label class="form-label" for="message">user@client:~$ cat message.txt</label>
-              <textarea id="message" class="form-textarea" placeholder="Describe your project, requirements, timeline, and technical challenges..." required></textarea>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Describe your project..." required></textarea>
             </div>
-            
-            <button type="submit" class="btn">
-              <span>📡</span> Send Transmission
+            <!-- Hidden honeypot field to prevent spam -->
+            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+
+            <!-- Formspree configuration -->
+            <input type="hidden" name="_subject" value="New Project Inquiry - Engineering Portfolio">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" class="btn" id="submitBtn">
+            <span id="submitIcon">📡</span>
+            <span id="submitText">Send Transmission</span>
             </button>
           </form>
         </div>
@@ -1860,6 +2155,8 @@ generate
     end
 endgenerate`
       },
+
+      
       'bio-sensor': {
         title: 'Wearable Health Monitor',
         type: 'Biosensors • Health AI • Wearable Tech',
@@ -2133,39 +2430,228 @@ class HealthMonitor {
       if (e.key === 'Escape') closeModal();
     });
 
-    // Contact form handling
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        project: document.getElementById('project').value,
-        budget: document.getElementById('budget').value,
-        message: document.getElementById('message').value
-      };
+    // Replace the existing contact form event listener with this updated version
 
-      // Simulate form submission
-      console.log('Engineering consultation request:', formData);
-      
-      // Show success message in terminal style
-      alert(`
-╔══════════════════════════════════════╗
-║          TRANSMISSION SENT           ║
-╠══════════════════════════════════════╣
-║                                      ║
-║  ✅ Message received successfully    ║
-║  📡 Routing to engineering team      ║
-║  ⏱️  Expected response: 24-48 hours   ║
-║                                      ║
-║  Thank you for your interest!        ║
-║                                      ║
-╚══════════════════════════════════════╝
+// Enhanced contact form handling with Formspree
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const form = e.target;
+  const submitBtn = document.getElementById('submitBtn');
+  const submitIcon = document.getElementById('submitIcon');
+  const submitText = document.getElementById('submitText');
+  
+  // Change button state to loading
+  submitBtn.disabled = true;
+  submitIcon.textContent = '⏳';
+  submitText.textContent = 'Transmitting...';
+  submitBtn.style.opacity = '0.7';
+  
+  try {
+    // Get form data
+    const formData = new FormData(form);
+    
+    // Send to Formspree
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      // Success - show terminal-style success message
+      showTerminalMessage('success', `
+╔══════════════════════════════════════════════════╗
+║              TRANSMISSION SUCCESSFUL             ║
+╠══════════════════════════════════════════════════╣
+║                                                  ║
+║  ✅ Message transmitted successfully             ║
+║  📡 Routing to engineering team...               ║
+║  📧 Confirmation sent to your email              ║
+║  ⏱️  Expected response: 24-48 hours               ║
+║                                                  ║
+║  Thank you for reaching out!                     ║
+║  Engineering consultation request logged.        ║
+║                                                  ║
+╚══════════════════════════════════════════════════╝
       `);
       
       // Reset form
-      e.target.reset();
-    });
+      form.reset();
+      
+      // Reset button state
+      setTimeout(() => {
+        submitIcon.textContent = '✅';
+        submitText.textContent = 'Message Sent!';
+        setTimeout(() => {
+          submitIcon.textContent = '📡';
+          submitText.textContent = 'Send Transmission';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }, 2000);
+      }, 1000);
+      
+    } else {
+      throw new Error('Network response was not ok');
+    }
+    
+  } catch (error) {
+    console.error('Form submission error:', error);
+    
+    // Error handling
+    showTerminalMessage('error', `
+╔══════════════════════════════════════════════════╗
+║              TRANSMISSION FAILED                 ║
+╠══════════════════════════════════════════════════╣
+║                                                  ║
+║  ❌ Connection error occurred                    ║
+║  🔧 Please try again or contact directly:        ║
+║                                                  ║
+║  📧 md263401@gmail.com                           ║
+║  📱 +91 9604318437                               ║
+║                                                  ║
+║  System attempting auto-retry...                 ║
+║                                                  ║
+╚══════════════════════════════════════════════════╝
+    `);
+    
+    // Reset button state
+    setTimeout(() => {
+      submitIcon.textContent = '❌';
+      submitText.textContent = 'Transmission Failed';
+      setTimeout(() => {
+        submitIcon.textContent = '📡';
+        submitText.textContent = 'Send Transmission';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      }, 3000);
+    }, 1000);
+  }
+});
+
+// Terminal message display function
+function showTerminalMessage(type, message) {
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1rem;
+    box-sizing: border-box;
+  `;
+  
+  // Create terminal window
+  const terminal = document.createElement('div');
+  terminal.style.cssText = `
+    background: var(--bg-dark);
+    border: 2px solid ${type === 'success' ? 'var(--primary)' : 'var(--accent)'};
+    border-radius: 8px;
+    padding: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-primary);
+    white-space: pre-line;
+    font-size: 0.9rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    animation: modalSlideIn 0.4s ease-out;
+  `;
+  
+  terminal.textContent = message;
+  
+  // Add close instruction
+  const closeText = document.createElement('div');
+  closeText.textContent = '\n[Press anywhere to close]';
+  closeText.style.cssText = `
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  `;
+  terminal.appendChild(closeText);
+  
+  overlay.appendChild(terminal);
+  document.body.appendChild(overlay);
+  
+  // Close on click or escape
+  const closeModal = () => {
+    overlay.remove();
+  };
+  
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function escapeHandler(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.removeEventListener('keydown', escapeHandler);
+    }
+  });
+  
+  // Auto close after 8 seconds
+  setTimeout(closeModal, 8000);
+}
+
+// Add form validation enhancements
+const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+
+formInputs.forEach(input => {
+  // Add real-time validation feedback
+  input.addEventListener('blur', function() {
+    if (this.hasAttribute('required') && !this.value.trim()) {
+      this.style.borderColor = 'var(--accent)';
+      this.style.boxShadow = '0 0 0 2px rgba(255, 107, 53, 0.2)';
+    } else {
+      this.style.borderColor = 'var(--border-subtle)';
+      this.style.boxShadow = 'none';
+    }
+  });
+  
+  // Reset validation state on focus
+  input.addEventListener('focus', function() {
+    this.style.borderColor = 'var(--primary)';
+    this.style.boxShadow = '0 0 0 2px rgba(0, 255, 136, 0.2)';
+  });
+  
+  // Terminal-style typing effect
+  input.addEventListener('input', function() {
+    if (this.style.borderColor !== 'var(--primary)') {
+      this.style.borderColor = 'var(--primary)';
+      this.style.boxShadow = '0 0 0 2px rgba(0, 255, 136, 0.2)';
+    }
+  });
+});
+
+// Email validation helper
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Form submission validation
+function validateForm(formData) {
+  const email = formData.get('email');
+  const name = formData.get('name');
+  const message = formData.get('message');
+  const projectType = formData.get('project_type');
+  
+  if (!name?.trim()) return 'Name is required';
+  if (!email?.trim()) return 'Email is required';
+  if (!validateEmail(email)) return 'Please enter a valid email address';
+  if (!projectType) return 'Please select a project type';
+  if (!message?.trim()) return 'Message is required';
+  if (message.trim().length < 10) return 'Please provide more details about your project';
+  
+  return null;
+}
 
     // Enhanced project card animations
     projectCards.forEach(card => {
