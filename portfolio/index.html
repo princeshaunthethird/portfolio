@@ -2051,46 +2051,117 @@ if __name__ == '__main__':
         `
 },
 
-      'autonomous-drone': {
-        title: 'Autonomous Surveillance Drone',
-        type: 'Computer Vision • Flight Control • Edge AI',
+           'java-chat-app': {
+        title: 'Real-Time Chat Application',
+        type: 'Network Programming • Database Systems • GUI Development',
         status: 'TESTING',
-        description: 'Fully autonomous quadcopter system with real-time object detection, intelligent path planning, and secure data transmission.',
-        images: ['🚁', '📹', '🗺️', '🛡️'],
+        description: 'A robust client-server chat application featuring real-time messaging, persistent message history, local and remote network support, and a modern graphical user interface.',
+        images: ['💬', '🌐', '💾', '🔐'],
         specifications: {
-          'Flight Controller': 'Pixhawk 6C with custom firmware',
-          'Computer Vision': 'NVIDIA Jetson Xavier NX, 21 TOPS',
-          'Camera System': '4K@60fps gimbal, thermal imaging',
-          'Communications': '5G module, encrypted data links',
-          'Navigation': 'GPS + RTK, Visual-Inertial Odometry',
-          'Flight Time': '45 minutes with payload'
+          'Architecture': 'Client-Server with Socket Programming',
+          'GUI Framework': 'Java Swing with modern UI components',
+          'Database': 'MySQL with JDBC connector',
+          'Networking': 'TCP Sockets on port 7777',
+          'Message Storage': 'Persistent with timestamp indexing',
+          'Connectivity': 'LAN, WAN, and internet-ready (with Ngrok)'
         },
         architecture: [
-          'Flight Control System (PX4 autopilot)',
-          'Computer Vision Pipeline (YOLO v8 + tracking)',
-          'Mission Planning Module (ROS2 navigation)',
-          'Secure Communication Layer (encrypted telemetry)',
-          'Ground Control Station (React + WebRTC)',
-          'Edge AI Processing (TensorRT optimization)'
+          'Server Module (Multi-threaded connection handler)',
+          'Client Module (Asynchronous message receiver)',
+          'Database Layer (MySQL with prepared statements)',
+          'GUI Layer (Swing components with event listeners)',
+          'Network Layer (BufferedReader/PrintWriter streams)',
+          'Message Persistence (SQL with timestamp tracking)'
         ],
         features: [
-          'Autonomous takeoff, navigation, and landing',
-          'Real-time object detection and tracking',
-          'Intelligent obstacle avoidance',
-          'Secure video streaming with encryption',
-          'GPS-denied indoor navigation capability',
-          'Automated patrol patterns and geofencing'
+          'Real-time bidirectional messaging',
+          'Automatic message history loading (last 50 messages)',
+          'Custom username support for both server and client',
+          'Timestamped messages with HH:mm format',
+          'Color-coded message display (sent/received/system)',
+          'Connection status indicators (green/orange/red)',
+          'Local network auto-discovery with IP display',
+          'Graceful connection handling and cleanup',
+          'Cross-platform compatibility (Windows/Mac/Linux)',
+          'Internet connectivity via Ngrok tunneling'
         ],
         metrics: {
-          'Detection Rate': '30fps real-time',
-          'Flight Range': '5km operational',
-          'Object Accuracy': '97.3%',
-          'Flight Time': '45 minutes',
-          'Wind Resistance': 'up to 15 m/s'
+          'Message Latency': '<50ms on LAN',
+          'History Load': '50 messages on startup',
+          'Database Queries': 'Optimized with indexes',
+          'Network Range': '5km+ with WiFi',
+          'Concurrent Users': 'Scalable architecture'
         },
         codeExample: `
+        private void startServer() {
+    try {
+        // Database connection
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/chat_application",
+            "root", "password"
+        );
 
+        // Socket server on all interfaces
+        server = new ServerSocket(7777);
+        socket = server.accept();
+        
+        String clientIP = socket.getInetAddress().getHostAddress();
+        updateStatus("Client Connected from " + clientIP, Color.GREEN);
+
+        // Initialize I/O streams
+        br = new BufferedReader(
+            new InputStreamReader(socket.getInputStream())
+        );
+        out = new PrintWriter(socket.getOutputStream(), true);
+
+        // Load message history
+        loadMessageHistory();
+
+        // Start message receiver thread
+        startReading();
+    } catch (Exception e) {
+        handleError(e);
+    }
+}
+
+// Message persistence with timestamps
+private void saveMessage(String sender, String receiver, String content) {
+    String query = "INSERT INTO messages (sender, receiver, content) " +
+                   "VALUES (?, ?, ?)";
+    try {
+        PreparedStatement pstmt = con.prepareStatement(query);
+        pstmt.setString(1, sender);
+        pstmt.setString(2, receiver);
+        pstmt.setString(3, content);
+        pstmt.executeUpdate();
+    } catch (SQLException e) {
+        System.err.println("Error saving message");
+    }
+}
+
+// Asynchronous message receiver
+private void startReading() {
+    Thread readerThread = new Thread(() -> {
+        try {
+            while (isConnected && !socket.isClosed()) {
+                String msg = br.readLine();
+                if (msg == null || msg.equals("exit")) {
+                    disconnect();
+                    break;
+                }
+                String timestamp = getCurrentTime();
+                appendMessage("[" + timestamp + "] " + msg);
+            }
+        } catch (Exception e) {
+            handleDisconnection();
+        }
+    });
+    readerThread.setDaemon(true);
+    readerThread.start();
+}
                     `
+      },
       },
 
 
